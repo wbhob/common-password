@@ -1,11 +1,13 @@
 {
   "name": "common-password",
-  "version": "0.1.2",
-  "description": "Checks if given password is popular.",
-  "main": "./lib/common-password.js",
+  "version": "0.1.3",
+  "description": "Checks if a password is in the list of 10k most common passwords.",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "postinstall": "node ./lib/generate-json.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r ts-node/register tests.spec.ts --timeout 15000",
+    "build": "./node_modules/.bin/tsc"
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,14 @@
     "url": "https://github.com/meehow/common-password/issues"
   },
   "homepage": "https://github.com/meehow/common-password",
-  "dependencies": {
-    "buffer-crc32": "^0.2.5"
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.43",
+    "@types/node": "^8.0.34",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.5.3"
   }
 }
